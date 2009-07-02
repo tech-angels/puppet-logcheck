@@ -27,13 +27,13 @@ Server node::
 
     # ignore scope from puppet logs
     logcheck::ignore {"scope in puppet":
-      rule => 'puppetmasterd\[[0-9]+\].+Scope',
+    rule => 'puppetmasterd\[[0-9]+\].+Scope',
     }
     
     # ignore violations for a specific thing on a specific host
     logcheck::ignore {"violations redir <host>":
-      rule => "<host> redir.*getaddrinfo\(.+\) failed"
-      type => "violations"
+    rule => "<host> redir.*getaddrinfo\(.+\) failed"
+    type => "violations"
     }
 
   }
