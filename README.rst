@@ -19,6 +19,7 @@ Server node::
   node 'logserver.domain.lt' {
     
     # setting up some stuff
+
     $logcheck_fqdn = 1
     $logcheck_mailto = "root"
     $logcheck_reportlvl = "server"
@@ -26,11 +27,13 @@ Server node::
     include logcheck
 
     # ignore scope from puppet logs
+
     logcheck::ignore {"scope in puppet":
     rule => 'puppetmasterd\[[0-9]+\].+Scope',
     }
     
     # ignore violations for a specific thing on a specific host
+
     logcheck::ignore {"violations redir <host>":
     rule => "<host> redir.*getaddrinfo\(.+\) failed"
     type => "violations"
