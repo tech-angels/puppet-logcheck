@@ -4,11 +4,6 @@ class logcheck {
     ensure => present,
   }
 
-  # our logs will be in /srv/logcheck/<hostname> so we have to create parents.
-  file {"/srv/logcheck":
-    ensure => directory
-  }
-
   # config
   file {"/etc/logcheck/logcheck.conf":
     ensure => present,
@@ -30,5 +25,6 @@ class logcheck {
     mode => 0644,
     owner => root,
     group => logcheck,
+    require => Package["logcheck"],
   }
 }
