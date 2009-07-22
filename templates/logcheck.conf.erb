@@ -5,11 +5,11 @@
 
 # Controls the format of date-/time-stamps in subject lines:
 # Alternatively, set the format to suit your locale
-<% if has_variable?("logcheck_date") %>
+<% if has_variable?("logcheck_date") -%>
 DATE="<%= logcheck_date %>"
-<% else %>
+<% else -%>
 #DATE="$(date +'%Y-%m-%d %H:%M')"
-<% end %>
+<% end -%>
 
 #
 # Controls the presence of boilerplate at the top of each message:
@@ -18,91 +18,91 @@ DATE="<%= logcheck_date %>"
 # If the files /etc/logcheck/header.txt and /etc/logcheck/footer.txt
 # are present their contents will be read and used as the header and
 # footer of any generated mails.
-<% if has_variable?("locheck_intro") %>
+<% if has_variable?("locheck_intro") -%>
 INTRO=<%= logcheck_intro %>
-<% else %>
+<% else -%>
 #INTRO=1
-<% end %>
+<% end -%>
 
 # Controls the level of filtering: 
 # Can be Set to "workstation", "server" or "paranoid" for different
 # levels of filtering. Defaults to server if not set.
-<% if has_variable?("locheck_report_lvl") %>
+<% if has_variable?("locheck_report_lvl") -%>
 REPORTLEVEL="<%= locheck_report_lvl %>"
-<% else %>
+<% else -%>
 REPORTLEVEL="server"
-<% end %>
+<% end -%>
 
 # Controls the address mail goes to:
 # *NOTE* the script does not set a default value for this variable!
 # Should be set to an offsite "emailaddress@some.domain.tld"
-<% if has_variable?("locheck_mailto") %>
+<% if has_variable?("locheck_mailto") -%>
 SENDMAILTO="<%= logcheck_mailto %>"
-<% else %>
+<% else -%>
 SENDMAILTO="root"
-<% end %>
+<% end -%>
 
 # Should the hostname of the generated mails be fully qualified?
-<% if has_variable?("logcheck_fqdn") %>
+<% if has_variable?("logcheck_fqdn") -%>
 FQDN=<%= logcheck_fqdn %>
-<% else %>
+<% else -%>
 #FQDN=1
-<% end %>
+<% end -%>
 
 # Controls whether "sort -u" is used on log entries (which will
 # eliminate duplicates but destroy the original ordering); the
 # default is to use "sort -k 1,3 -s":
 # Alternatively, set to "1" to enable unique sorting
-<% if has_variable?("logcheck_sortuniq") %>
+<% if has_variable?("logcheck_sortuniq") -%>
 SORTUNIQ=<%= logcheck_sortuniq %>
-<% else %>
+<% else -%>
 #SORTUNIQ=0
-<% end %>
+<% end -%>
 
 # Controls whether /etc/logcheck/cracking.ignore.d is scanned for
 # exceptions to the rules in /etc/logcheck/cracking.d:
 # Alternatively, set to "1" to enable cracking.ignore support
-<% if has_variable?("logcheck_support_cracking_ignore") %>
+<% if has_variable?("logcheck_support_cracking_ignore") -%>
 SUPPORT_CRACKING_IGNORE=<%= logcheck_support_cracking_ignore %>
-<% else %>
+<% else -%>
 #SUPPORT_CRACKING_IGNORE=0
-<% end %>
+<% end -%>
 
 # Controls the base directory for rules file location
 # This must be an absolute path
-<%if has_variable?("logcheck_ruledir") %>
+<%if has_variable?("logcheck_ruledir") -%>
 RULEDIR="<%= logcheck_ruledir %>"
-<% else %>
+<% else -%>
 #RULEDIR="/etc/logcheck"
-<% end %>
+<% end -%>
 
 # Controls if syslog-summary is run over each section.
 # Alternatively, set to "1" to enable extra summary.
-<% if has_variable?("logcheck_syslogsummary") %>
+<% if has_variable?("logcheck_syslogsummary") -%>
 SYSLOGSUMMARY=<%= logcheck_syslogsummary %>
-<% else %>
+<% else -%>
 #SYSLOGSUMMARY=0
-<% end %>
+<% end -%>
 
 # Controls Subject: lines on logcheck reports:
-<% if has_variable?("logcheck_attacksubj") %>
+<% if has_variable?("logcheck_attacksubj") -%>
 ATTACKSUBJECT="<%= logcheck_attacksubj %>"
-<% else %>
+<% else -%>
 #ATTACKSUBJECT="Attack Alerts"
-<% end %>
-<% if has_variable?("logcheck_securitysubj") %>
+<% end -%>
+<% if has_variable?("logcheck_securitysubj") -%>
 SECURITYSUBJECT="<?= logcheck_securitysubj ?>"
-<% else %>
+<% else -%>
 #SECURITYSUBJECT="Security Events"
-<% end %>
-<% if has_variable?("logcheck_eventsubj") %>
+<% end -%>
+<% if has_variable?("logcheck_eventsubj") -%>
 EVENTSSUBJECT="<%= logcheck_eventsubj %>"
-<% else %>
+<% else -%>
 #EVENTSSUBJECT="System Events"
-<% end %>
+<% end -%>
 # Controls [logcheck] prefix on Subject: lines
-<% if has_variable?("logcheck_addtag") %>
+<% if has_variable?("logcheck_addtag") -%>
 ADDTAG="<%= logcheck_addtag %>"
-<% else %>
+<% else -%>
 # ADDTAG="no"
-<% end %>
+<% end -%>
