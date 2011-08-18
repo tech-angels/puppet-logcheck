@@ -18,7 +18,7 @@ DATE="<%= logcheck_date %>"
 # If the files /etc/logcheck/header.txt and /etc/logcheck/footer.txt
 # are present their contents will be read and used as the header and
 # footer of any generated mails.
-<% if has_variable?("locheck_intro") -%>
+<% if has_variable?("logcheck_intro") -%>
 INTRO=<%= logcheck_intro %>
 <% else -%>
 #INTRO=1
@@ -27,8 +27,8 @@ INTRO=<%= logcheck_intro %>
 # Controls the level of filtering: 
 # Can be Set to "workstation", "server" or "paranoid" for different
 # levels of filtering. Defaults to server if not set.
-<% if has_variable?("locheck_report_lvl") -%>
-REPORTLEVEL="<%= locheck_report_lvl %>"
+<% if has_variable?("logcheck_report_lvl") -%>
+REPORTLEVEL="<%= logcheck_report_lvl %>"
 <% else -%>
 REPORTLEVEL="server"
 <% end -%>
@@ -36,7 +36,7 @@ REPORTLEVEL="server"
 # Controls the address mail goes to:
 # *NOTE* the script does not set a default value for this variable!
 # Should be set to an offsite "emailaddress@some.domain.tld"
-<% if has_variable?("locheck_mailto") -%>
+<% if has_variable?("logcheck_mailto") -%>
 SENDMAILTO="<%= logcheck_mailto %>"
 <% else -%>
 SENDMAILTO="root"
