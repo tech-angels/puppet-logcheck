@@ -16,6 +16,7 @@ define logcheck::ignore($ensure=present,
   common::concatfilepart {"set rule $name":
     file        => $file,
     content     => "$rule\n",
+    manage	=> true,
     ensure      => $ensure,
   }
 }
