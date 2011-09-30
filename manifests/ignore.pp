@@ -1,13 +1,15 @@
 define logcheck::ignore($ensure=present, 
                         $rule,
                         $lvl='server',
-                        $type='ignore') {
+                        $type='ignore',
+                        $filename='') {
   case $type {
     'ignore': {
       $file = "/etc/logcheck/ignore.d.${lvl}/auto-puppet"
     }
     'violations','cracking': {
-      $file = "/etc/logcheck/${type}.ignore.d/auto-puppet"
+      $filename_real = $filename ? { '' => 'auto-puppet', default => $filename }
+      $file = "/etc/logcheck/${type}.ignore.d/${filename_real}"
     }
     default: {
       fail "Uknown type $type for logcheck::ignore"
