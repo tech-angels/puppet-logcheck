@@ -1,4 +1,6 @@
-class logcheck {
+class logcheck(
+  logcheck_tmp = '/tmp'
+) {
   # install package
   package { "logcheck":
     ensure => present,
@@ -7,7 +9,7 @@ class logcheck {
   # config
   file {"/etc/logcheck/logcheck.conf":
     ensure => present,
-    content => template("logcheck/logcheck.conf.erb"),
+    content => template("logcheck/logcheck.conf.${lsbdistcodename}.erb"),
     require => Package["logcheck"],
     owner => root,
     group => logcheck,
