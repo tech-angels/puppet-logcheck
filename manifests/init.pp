@@ -1,5 +1,5 @@
 class logcheck(
-  logcheck_tmp = '/tmp'
+  $logcheck_tmp = '/tmp'
 ) {
   # install package
   package { "logcheck":
