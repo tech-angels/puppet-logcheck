@@ -6,6 +6,11 @@ class logcheck(
     ensure => present,
   }
 
+  package { "logcheck-database":
+    ensure => present,
+  }
+
+
   # config
   file {"/etc/logcheck/logcheck.conf":
     ensure => present,
