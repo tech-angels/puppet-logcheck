@@ -6,7 +6,7 @@
 # Controls the format of date-/time-stamps in subject lines:
 # Alternatively, set the format to suit your locale
 <% if has_variable?("logcheck_date") -%>
-DATE="<%= logcheck_date %>"
+DATE="<%= @logcheck_date %>"
 <% else -%>
 #DATE="$(date +'%Y-%m-%d %H:%M')"
 <% end -%>
@@ -19,7 +19,7 @@ DATE="<%= logcheck_date %>"
 # are present their contents will be read and used as the header and
 # footer of any generated mails.
 <% if has_variable?("logcheck_intro") -%>
-INTRO=<%= logcheck_intro %>
+INTRO=<%= @logcheck_intro %>
 <% else -%>
 #INTRO=1
 <% end -%>
@@ -28,7 +28,7 @@ INTRO=<%= logcheck_intro %>
 # Can be Set to "workstation", "server" or "paranoid" for different
 # levels of filtering. Defaults to server if not set.
 <% if has_variable?("logcheck_report_lvl") -%>
-REPORTLEVEL="<%= logcheck_report_lvl %>"
+REPORTLEVEL="<%= @logcheck_report_lvl %>"
 <% else -%>
 REPORTLEVEL="server"
 <% end -%>
@@ -37,7 +37,7 @@ REPORTLEVEL="server"
 # *NOTE* the script does not set a default value for this variable!
 # Should be set to an offsite "emailaddress@some.domain.tld"
 <% if has_variable?("logcheck_mailto") -%>
-SENDMAILTO="<%= logcheck_mailto %>"
+SENDMAILTO="<%= @logcheck_mailto %>"
 <% else -%>
 SENDMAILTO="root"
 <% end -%>
@@ -50,7 +50,7 @@ MAILASATTACH=0
 
 # Should the hostname of the generated mails be fully qualified?
 <% if has_variable?("logcheck_fqdn") -%>
-FQDN=<%= logcheck_fqdn %>
+FQDN=<%= @logcheck_fqdn %>
 <% else -%>
 #FQDN=1
 <% end -%>
@@ -60,7 +60,7 @@ FQDN=<%= logcheck_fqdn %>
 # default is to use "sort -k 1,3 -s":
 # Alternatively, set to "1" to enable unique sorting
 <% if has_variable?("logcheck_sortuniq") -%>
-SORTUNIQ=<%= logcheck_sortuniq %>
+SORTUNIQ=<%= @logcheck_sortuniq %>
 <% else -%>
 #SORTUNIQ=0
 <% end -%>
@@ -69,7 +69,7 @@ SORTUNIQ=<%= logcheck_sortuniq %>
 # exceptions to the rules in /etc/logcheck/cracking.d:
 # Alternatively, set to "1" to enable cracking.ignore support
 <% if has_variable?("logcheck_support_cracking_ignore") -%>
-SUPPORT_CRACKING_IGNORE=<%= logcheck_support_cracking_ignore %>
+SUPPORT_CRACKING_IGNORE=<%= @logcheck_support_cracking_ignore %>
 <% else -%>
 #SUPPORT_CRACKING_IGNORE=0
 <% end -%>
@@ -77,7 +77,7 @@ SUPPORT_CRACKING_IGNORE=<%= logcheck_support_cracking_ignore %>
 # Controls the base directory for rules file location
 # This must be an absolute path
 <%if has_variable?("logcheck_ruledir") -%>
-RULEDIR="<%= logcheck_ruledir %>"
+RULEDIR="<%= @logcheck_ruledir %>"
 <% else -%>
 #RULEDIR="/etc/logcheck"
 <% end -%>
@@ -85,30 +85,30 @@ RULEDIR="<%= logcheck_ruledir %>"
 # Controls if syslog-summary is run over each section.
 # Alternatively, set to "1" to enable extra summary.
 <% if has_variable?("logcheck_syslogsummary") -%>
-SYSLOGSUMMARY=<%= logcheck_syslogsummary %>
+SYSLOGSUMMARY=<%= @logcheck_syslogsummary %>
 <% else -%>
 #SYSLOGSUMMARY=0
 <% end -%>
 
 # Controls Subject: lines on logcheck reports:
 <% if has_variable?("logcheck_attacksubj") -%>
-ATTACKSUBJECT="<%= logcheck_attacksubj %>"
+ATTACKSUBJECT="<%= @logcheck_attacksubj %>"
 <% else -%>
 #ATTACKSUBJECT="Attack Alerts"
 <% end -%>
 <% if has_variable?("logcheck_securitysubj") -%>
-SECURITYSUBJECT="<?= logcheck_securitysubj ?>"
+SECURITYSUBJECT="<%= @logcheck_securitysubj ?>"
 <% else -%>
 #SECURITYSUBJECT="Security Events"
 <% end -%>
 <% if has_variable?("logcheck_eventsubj") -%>
-EVENTSSUBJECT="<%= logcheck_eventsubj %>"
+EVENTSSUBJECT="<%= @logcheck_eventsubj %>"
 <% else -%>
 #EVENTSSUBJECT="System Events"
 <% end -%>
 # Controls [logcheck] prefix on Subject: lines
 <% if has_variable?("logcheck_addtag") -%>
-ADDTAG="<%= logcheck_addtag %>"
+ADDTAG="<%= @logcheck_addtag %>"
 <% else -%>
 # ADDTAG="no"
 <% end -%>
@@ -124,5 +124,5 @@ ADDTAG="<%= logcheck_addtag %>"
 # If this is happening, likely you will want to change the following to be some other
 # location, such as /var/tmp
 
-TMP="<%= logcheck_tmp %>"
+TMP="<%= @logcheck_tmp %>"
 
