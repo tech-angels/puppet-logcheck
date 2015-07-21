@@ -1,5 +1,18 @@
 class logcheck(
-  $logcheck_tmp = '/tmp'
+  $logcheck_tmp = '/tmp',
+  $logcheck_addtag='no',
+  $logcheck_attacksubj='Attack Alerts',
+  $logcheck_date='$(date +\'%Y-%m-%d %H:%M\')',
+  $logcheck_eventsubj='System Events',
+  $logcheck_fqdn='1',
+  $logcheck_intro='1',
+  $logcheck_mailto='root',
+  $logcheck_report_lvl='server',
+  $logcheck_ruledir='/etc/logcheck',
+  $logcheck_securitysubj='Security Events',
+  $logcheck_sortuniq='0',
+  $logcheck_support_cracking_ignore='0',
+  $logcheck_syslogsummary='0',
 ) {
   # install package
   package { "logcheck":
