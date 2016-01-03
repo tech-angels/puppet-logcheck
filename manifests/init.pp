@@ -13,14 +13,17 @@ class logcheck(
   $logcheck_sortuniq='0',
   $logcheck_support_cracking_ignore='0',
   $logcheck_syslogsummary='0',
+  $install_database=true,
 ) {
   # install package
   package { "logcheck":
     ensure => present,
   }
 
-  package { "logcheck-database":
-    ensure => present,
+  if $install_database {
+    package { "logcheck-database":
+      ensure => present,
+    }
   }
 
 
